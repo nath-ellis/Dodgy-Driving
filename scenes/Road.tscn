@@ -26,8 +26,8 @@ centered = false
 position = Vector2( 27.75, 0 )
 shape = SubResource( 1 )
 
-[node name="RIghtBorder" type="KinematicBody2D" parent="."]
+[node name="RightBorder" type="KinematicBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RIghtBorder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBorder"]
 position = Vector2( 573, 0 )
 shape = SubResource( 1 )
