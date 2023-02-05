@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/road.svg" type="Texture" id=1]
 [ext_resource path="res://scripts/Road.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.25, 2652 )
 
 [node name="Road" type="Node2D"]
 script = ExtResource( 2 )
@@ -16,3 +19,15 @@ position = Vector2( 0, -2652 )
 scale = Vector2( 0.557, 0.557 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="LeftBorder" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder"]
+position = Vector2( 27.75, 0 )
+shape = SubResource( 1 )
+
+[node name="RIghtBorder" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RIghtBorder"]
+position = Vector2( 573, 0 )
+shape = SubResource( 1 )
