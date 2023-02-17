@@ -5,17 +5,23 @@ var rand = RandomNumberGenerator.new()
 var speed
 var vel = Vector2()
 var sprite
+var explosion
+var hitbox
 
 
 func _ready():
 	rand.randomize()
 	
 	sprite = $Sprite
+	explosion = $Explosion
+	hitbox = $CollisionShape2D
+	
+	set_meta("border", false)
 	
 	randomize_enemy()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Enemy drives off the bottom
 	if position.y >= get_viewport_rect().size.y + 60 and vel.y > 0: randomize_enemy()
 	# Enemy drives off the top
@@ -26,7 +32,17 @@ func _physics_process(delta):
 	# If there is a collision
 	if col != null:
 		var collider = col.collider  # The kinematicbody2d that the enemy collides with
-		# TODO: Add consquences for collision
+		
+		# Player collision
+		if collider.has_method("enemy_collision"):
+			collider.call("enemy_collision")
+			
+		# Other enemy collision
+		if collider.has_method("collision"):
+			collider.call("collision")
+			
+		if collider.name != "LeftBorder" or collider.name != "RightBorder":
+			collision()
 
 
 func randomize_enemy():
@@ -76,3 +92,25 @@ func randomize_enemy():
 			
 			if vel.y > 0:  # If it is moving in the wrong direction
 				vel.y *= -1
+
+
+func collision():
+	vel.y = 0
+	
+	hitbox.disabled = true
+	
+	explosion.show()
+	explosion.play()
+	
+	sprite.hide()
+
+
+func _on_Explosion_animation_finished():
+	randomize_enemy()
+	
+	sprite.show()
+	
+	explosion.hide()
+	explosion.stop()
+	
+	hitbox.disabled = false

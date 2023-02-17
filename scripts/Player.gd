@@ -3,6 +3,15 @@ extends KinematicBody2D
 
 export var speed = 15
 var vel = Vector2()
+var explosion
+var hitbox
+var timer
+
+
+func _ready():
+	explosion = $Explosion
+	hitbox = $CollisionShape2D
+	timer = $Timer
 
 
 func _input(event):
@@ -16,6 +25,35 @@ func _input(event):
 		
 		# So that the player cannot teleport across the screen
 		if range_x < 300 and range_y < 300:
-			vel.x = (event.position.x - global_position.x) * speed
-			vel.y = (event.position.y - global_position.y) * speed
-			vel = move_and_slide(vel)
+			vel.x = event.position.x - global_position.x
+			vel.y = event.position.y - global_position.y
+			
+			var col = move_and_collide(vel)
+			
+			if col != null:
+				var collider = col.collider
+				
+				if collider.has_method("collision"):
+					collider.call("collision")
+				
+				# Prevents collision with borders counting
+				if collider.get_meta("border") == false:
+					enemy_collision()
+
+
+func enemy_collision():
+	if timer.is_stopped():
+		vel.x = 0
+		vel.y = 0
+		
+		explosion.show()
+		explosion.play()
+		
+		timer.start()
+
+
+func _on_Explosion_animation_finished():
+	explosion.hide()
+	explosion.stop()
+	
+	get_parent().call("restart")

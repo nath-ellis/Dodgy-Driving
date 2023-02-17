@@ -12,6 +12,10 @@ func _ready():
 	road_2 = $Road2
 	
 	screen_height = get_viewport_rect().size.y
+	
+	# Add metadata
+	$LeftBorder.set_meta("border", true)
+	$RightBorder.set_meta("border", true)
 
 
 func _physics_process(_delta):
