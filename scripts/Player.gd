@@ -12,6 +12,8 @@ func _ready():
 	explosion = $Explosion
 	hitbox = $CollisionShape2D
 	timer = $Timer
+	
+	set_meta("lives", 3)
 
 
 func _input(event):
@@ -55,5 +57,8 @@ func enemy_collision():
 func _on_Explosion_animation_finished():
 	explosion.hide()
 	explosion.stop()
+	
+	set_meta("lives", get_meta("lives") - 1)  # Decrease lives
+	# TODO: Finish
 	
 	get_parent().call("restart")
