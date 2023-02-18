@@ -5,6 +5,7 @@ var life_sprite = preload("res://assets/life.png")
 var x = 557
 var y = 38
 
+
 func _ready():
 	# Add correct amount of lives
 	for _i in range($Player.get_meta("lives")):
