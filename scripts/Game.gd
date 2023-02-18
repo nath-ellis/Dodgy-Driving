@@ -17,6 +17,12 @@ func _ready():
 		y += 70
 
 
+func _process(_delta):
+	if $Player.get_meta("lives") <= 0:
+		pass
+		# TODO: Add consequences for dying
+
+
 func restart():
 	# Reset enemy positions
 	$Road/Enemy.call("randomize_enemy")
