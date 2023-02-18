@@ -59,6 +59,5 @@ func _on_Explosion_animation_finished():
 	explosion.stop()
 	
 	set_meta("lives", get_meta("lives") - 1)  # Decrease lives
-	# TODO: Finish
 	
 	get_parent().call("restart")
