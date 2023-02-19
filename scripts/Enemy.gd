@@ -45,10 +45,78 @@ func _physics_process(_delta):
 			collision()
 
 
+func change_type():
+	# Randomize the enemies sprite
+	match rand.randi_range(1, 8):
+		1:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/estate/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/estate/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/estate/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/estate/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/estate/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/estate/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/estate/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/estate/yellow.png"))
+		2:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/jeep/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/jeep/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/jeep/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/jeep/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/jeep/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/jeep/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/jeep/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/jeep/yellow.png"))
+		3:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/racing/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/racing/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/racing/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/racing/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/racing/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/racing/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/racing/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/racing/yellow.png"))
+		4:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/retro/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/retro/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/retro/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/retro/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/retro/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/retro/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/retro/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/retro/yellow.png"))
+		5:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/sport/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/sport/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/sport/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/sport/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/sport/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/sport/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/sport/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/sport/yellow.png"))
+		6:
+			match rand.randi_range(1, 9):
+				1: sprite.set_texture(load("res://assets/cars/vintage/black.png"))
+				2: sprite.set_texture(load("res://assets/cars/vintage/blue.png"))
+				3: sprite.set_texture(load("res://assets/cars/vintage/green.png"))
+				4: sprite.set_texture(load("res://assets/cars/vintage/pink.png"))
+				5: sprite.set_texture(load("res://assets/cars/vintage/purple.png"))
+				6: sprite.set_texture(load("res://assets/cars/vintage/red.png"))
+				7: sprite.set_texture(load("res://assets/cars/vintage/white.png"))
+				8: sprite.set_texture(load("res://assets/cars/vintage/yellow.png"))
+		7: sprite.set_texture(load("res://assets/cars/police.png"))
+
+
 func randomize_enemy():
 	speed = rand.randi_range(15, 20)
 	vel.x = 0
 	vel.y = speed  # Fixed speed
+	
+	change_type()
 	
 	var choice = rand.randi_range(1, 2)
 	
