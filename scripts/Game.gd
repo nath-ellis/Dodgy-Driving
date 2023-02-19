@@ -20,8 +20,7 @@ func _ready():
 
 func _process(_delta):
 	if $Player.get_meta("lives") <= 0:
-		pass
-		# TODO: Add consequences for dying
+		get_tree().change_scene("res://scenes/GameOver.tscn")
 
 
 func restart():
