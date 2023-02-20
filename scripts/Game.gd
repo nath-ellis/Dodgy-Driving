@@ -3,7 +3,7 @@ extends Node2D
 
 var life_sprite = preload("res://assets/life.png")
 var x = 557
-var y = 38
+var y = 48
 
 
 func _ready():
@@ -33,7 +33,7 @@ func restart():
 		
 	# Add lives
 	x = 557
-	y = 38
+	y = 48
 	
 	for _i in range($Player.get_meta("lives")):
 		var life = Sprite.new()
