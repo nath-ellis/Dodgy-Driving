@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var life_sprite = preload("res://assets/life.png")
+const life_sprite = preload("res://assets/life.png")
 
 
 func add_lives():
