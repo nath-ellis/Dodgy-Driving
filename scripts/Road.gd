@@ -1,21 +1,19 @@
 extends Node2D
 
 
-var road_1
-var road_2
 var Speed = 10
-var screen_height
+
+onready var road_1 = $Road1
+onready var road_2 = $Road2
+onready var left_border = $LeftBorder
+onready var right_border = $RightBorder
+onready var screen_height = get_viewport_rect().size.y
 
 
 func _ready():
-	road_1 = $Road1
-	road_2 = $Road2
-	
-	screen_height = get_viewport_rect().size.y
-	
 	# Add metadata
-	$LeftBorder.set_meta("border", true)
-	$RightBorder.set_meta("border", true)
+	left_border.set_meta("border", true)
+	right_border.set_meta("border", true)
 
 
 func _physics_process(_delta):

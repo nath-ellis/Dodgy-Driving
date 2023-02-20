@@ -2,19 +2,15 @@ extends KinematicBody2D
 
 
 var rand = RandomNumberGenerator.new()
-var speed
 var vel = Vector2()
-var sprite
-var explosion
-var hitbox
+
+onready var sprite = $Sprite
+onready var explosion = $Explosion
+onready var hitbox = $CollisionShape2D
 
 
 func _ready():
 	rand.randomize()
-	
-	sprite = $Sprite
-	explosion = $Explosion
-	hitbox = $CollisionShape2D
 	
 	set_meta("border", false)
 	
@@ -112,9 +108,8 @@ func change_type():
 
 
 func randomize_enemy():
-	speed = rand.randi_range(15, 20)
 	vel.x = 0
-	vel.y = speed  # Fixed speed
+	vel.y = rand.randi_range(15, 20) # Fixed speed
 	
 	change_type()
 	

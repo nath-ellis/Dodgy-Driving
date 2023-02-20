@@ -3,16 +3,13 @@ extends KinematicBody2D
 
 export var speed = 15
 var vel = Vector2()
-var explosion
-var hitbox
-var timer
+
+onready var explosion = $Explosion
+onready var hitbox = $CollisionShape2D
+onready var timer = $Timer
 
 
 func _ready():
-	explosion = $Explosion
-	hitbox = $CollisionShape2D
-	timer = $Timer
-	
 	set_meta("lives", 3)
 
 

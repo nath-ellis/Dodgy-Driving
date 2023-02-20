@@ -1,11 +1,7 @@
 extends Node2D
 
 
-var play_btn
-
-
-func _ready():
-	play_btn = $UI/PlayAgain
+onready var play_btn = $UI/PlayAgain
 
 
 func _process(_delta):
