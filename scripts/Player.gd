@@ -9,11 +9,11 @@ onready var hitbox = $CollisionShape2D
 onready var timer = $Timer
 
 
-func _ready():
+func _ready() -> void:
 	set_meta("lives", 3)
 
 
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		var range_x = event.position.x - global_position.x
 		var range_y = event.position.y - global_position.y
@@ -40,7 +40,7 @@ func _input(event):
 					enemy_collision()
 
 
-func enemy_collision():
+func enemy_collision() -> void:
 	if timer.is_stopped():
 		vel.x = 0
 		vel.y = 0
@@ -51,7 +51,7 @@ func enemy_collision():
 		timer.start()
 
 
-func _on_Explosion_animation_finished():
+func _on_Explosion_animation_finished() -> void:
 	explosion.hide()
 	explosion.stop()
 	

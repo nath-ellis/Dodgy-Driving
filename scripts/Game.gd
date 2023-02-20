@@ -11,7 +11,7 @@ onready var enemies = [
 ]
 
 
-func add_lives():
+func add_lives() -> void:
 	var x = 557
 	var y = 48
 	
@@ -32,16 +32,16 @@ func add_lives():
 			y += 70
 
 
-func _ready():
+func _ready() -> void:
 	add_lives()
 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if player.get_meta("lives") <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
 
 
-func restart():
+func restart() -> void:
 	# Reset enemy positions
 	for e in enemies:
 		e.call("randomize_enemy")

@@ -10,13 +10,13 @@ onready var right_border = $RightBorder
 onready var screen_height = get_viewport_rect().size.y
 
 
-func _ready():
+func _ready() -> void:
 	# Add metadata
 	left_border.set_meta("border", true)
 	right_border.set_meta("border", true)
 
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	# Move roads
 	road_1.position = Vector2(
 		road_1.position.x, 

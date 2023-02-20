@@ -9,7 +9,7 @@ onready var explosion = $Explosion
 onready var hitbox = $CollisionShape2D
 
 
-func _ready():
+func _ready() -> void:
 	rand.randomize()
 	
 	set_meta("border", false)
@@ -17,7 +17,7 @@ func _ready():
 	randomize_enemy()
 
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	# Enemy drives off the bottom
 	if position.y >= get_viewport_rect().size.y + 60 and vel.y > 0: randomize_enemy()
 	# Enemy drives off the top
@@ -41,7 +41,7 @@ func _physics_process(_delta):
 			collision()
 
 
-func change_type():
+func change_type() -> void:
 	# Randomize the enemies sprite
 	match rand.randi_range(1, 8):
 		1:
@@ -107,7 +107,7 @@ func change_type():
 		7: sprite.set_texture(load("res://assets/cars/police.png"))
 
 
-func randomize_enemy():
+func randomize_enemy() -> void:
 	vel.x = 0
 	vel.y = rand.randi_range(15, 20) # Fixed speed
 	
@@ -157,7 +157,7 @@ func randomize_enemy():
 				vel.y *= -1
 
 
-func collision():
+func collision() -> void:
 	vel.y = 0
 	
 	hitbox.disabled = true
@@ -168,7 +168,7 @@ func collision():
 	sprite.hide()
 
 
-func _on_Explosion_animation_finished():
+func _on_Explosion_animation_finished() -> void:
 	randomize_enemy()
 	
 	sprite.show()
