@@ -15,7 +15,13 @@ func _ready():
 		life.set_texture(life_sprite)
 		
 		$Lives.add_child(life)
-		y += 70
+		
+		# Overflow to the left if the player has enough lives to reach the bottom
+		if y >= get_viewport_rect().size.y - 96:
+			x -= 78
+			y = 48
+		else:
+			y += 70
 
 
 func _process(_delta):
@@ -42,4 +48,10 @@ func restart():
 		life.set_texture(life_sprite)
 		
 		$Lives.add_child(life)
-		y += 70
+		
+		# Overflow to the left if the player has enough lives to reach the bottom
+		if y >= get_viewport_rect().size.y - 96:
+			x -= 78
+			y = 48
+		else:
+			y += 70
