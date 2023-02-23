@@ -11,6 +11,7 @@ onready var timer = $Timer
 
 func _ready() -> void:
 	set_meta("lives", 3)
+	set_meta("is_coin", false)
 
 
 func _input(event) -> void:
@@ -32,11 +33,11 @@ func _input(event) -> void:
 			if col != null:
 				var collider = col.collider
 				
-				if collider.has_method("collision"):
+				if collider.has_method("collision") and !collider.get_meta("is_coin"):
 					collider.call("collision")
 				
 				# Prevents collision with borders counting
-				if collider.get_meta("border") == false:
+				if !collider.get_meta("border") and !collider.get_meta("is_coin"):
 					enemy_collision()
 
 

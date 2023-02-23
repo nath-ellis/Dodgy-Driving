@@ -14,6 +14,8 @@ func _ready() -> void:
 	# Add metadata
 	left_border.set_meta("border", true)
 	right_border.set_meta("border", true)
+	left_border.set_meta("is_coin", false)
+	right_border.set_meta("is_coin", false)
 
 
 func _physics_process(_delta) -> void:

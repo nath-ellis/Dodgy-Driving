@@ -13,6 +13,7 @@ func _ready() -> void:
 	rand.randomize()
 	
 	set_meta("border", false)
+	set_meta("is_coin", false)
 	
 	randomize_enemy()
 
@@ -36,9 +37,6 @@ func _physics_process(_delta) -> void:
 		# Other enemy collision
 		if collider.has_method("collision"):
 			collider.call("collision")
-			
-		if collider.name != "LeftBorder" or collider.name != "RightBorder":
-			collision()
 
 
 func change_type() -> void:

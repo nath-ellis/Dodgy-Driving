@@ -24,6 +24,10 @@ config/name="DodgyDriving"
 run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+Manager="*res://scripts/GameManager.gd"
+
 [display]
 
 window/size/width=600
