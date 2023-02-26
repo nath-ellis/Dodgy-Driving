@@ -107,7 +107,7 @@ func change_type() -> void:
 
 func randomize_enemy() -> void:
 	vel.x = 0
-	vel.y = rand.randi_range(15, 20) # Fixed speed
+	vel.y = rand.randi_range(Manager.speed+2, Manager.enemy_speed) # Fixed speed
 	
 	change_type()
 	

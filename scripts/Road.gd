@@ -1,8 +1,6 @@
 extends Node2D
 
 
-var Speed = 10
-
 onready var road_1 = $Road1
 onready var road_2 = $Road2
 onready var left_border = $LeftBorder
@@ -22,11 +20,11 @@ func _physics_process(_delta) -> void:
 	# Move roads
 	road_1.position = Vector2(
 		road_1.position.x, 
-		road_1.position.y + Speed
+		road_1.position.y + Manager.speed
 	)
 	road_2.position = Vector2(
 		road_2.position.x, 
-		road_2.position.y + Speed
+		road_2.position.y + Manager.speed
 	)
 	
 	# Move if off screen

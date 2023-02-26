@@ -15,7 +15,7 @@ func _init() -> void:
 
 
 func randomize_coin() -> void:
-	vel.y = rand.randi_range(15, 20)
+	vel.y = rand.randi_range(Manager.speed+2, Manager.enemy_speed)
 	
 	match rand.randi_range(1, 4):
 		1:
