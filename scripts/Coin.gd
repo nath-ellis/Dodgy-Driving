@@ -5,7 +5,7 @@ var rand = RandomNumberGenerator.new()
 var vel = Vector2()
 
 
-func _init():
+func _init() -> void:
 	rand.randomize()
 	
 	set_meta("border", false)
@@ -14,7 +14,7 @@ func _init():
 	randomize_coin()
 
 
-func randomize_coin():
+func randomize_coin() -> void:
 	vel.y = rand.randi_range(15, 20)
 	
 	match rand.randi_range(1, 4):
@@ -40,7 +40,7 @@ func randomize_coin():
 			)  # Fourth lane
 
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	# Coin goes off the bottom
 	if position.y >= get_viewport_rect().size.y + 60: randomize_coin()
 	
