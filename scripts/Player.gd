@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 
-export var speed = 15
 var vel = Vector2()
 
 onready var explosion = $Explosion
