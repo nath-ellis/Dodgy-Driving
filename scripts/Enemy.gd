@@ -37,6 +37,9 @@ func _physics_process(_delta) -> void:
 		# Other enemy collision
 		if collider.has_method("collision"):
 			collider.call("collision")
+		
+		if !collider.get_meta("is_coin"):
+			collision()
 
 
 func change_type() -> void:
@@ -107,7 +110,7 @@ func change_type() -> void:
 
 func randomize_enemy() -> void:
 	vel.x = 0
-	vel.y = rand.randi_range(Manager.speed+2, Manager.enemy_speed) # Fixed speed
+	vel.y = rand.randi_range(Manager.speed+5, Manager.enemy_speed) # Fixed speed
 	
 	change_type()
 	
