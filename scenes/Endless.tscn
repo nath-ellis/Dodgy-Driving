@@ -17,9 +17,9 @@ position = Vector2( 115, -79 )
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 242, 732 )
 
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 231, -64 )
+
 [node name="Lives" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-
-[node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 231, -64 )
