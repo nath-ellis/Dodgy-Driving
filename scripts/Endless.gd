@@ -4,6 +4,7 @@ extends Node2D
 const life_sprite = preload("res://assets/life.png")
 const enemy = preload("res://scenes/Enemy.tscn")
 
+var started_blocking = Time.get_unix_time_from_system()
 var lane_blocked = false
 var lane_to_block = 1
 var fixed_enemies = []
@@ -48,7 +49,7 @@ func block_lane() -> void:
 		4: x = 480
 	
 	# Add enemies which will stay in the same lane
-	for _i in range(8):
+	for _i in range(5):
 		var e = enemy.instance()
 		
 		e.position = Vector2(x, e.position.y)
@@ -59,6 +60,7 @@ func block_lane() -> void:
 		
 		road.add_child(e)
 		
+	started_blocking = Time.get_unix_time_from_system()
 	lane_blocked = true
 
 
@@ -84,7 +86,7 @@ func _process(_delta) -> void:
 		lane_to_block = rand.randi_range(1, 4)
 		block_lane()
 	
-	if rand.randi_range(1, 100) == 6 and lane_blocked:
+	if Time.get_unix_time_from_system() - started_blocking >= 10 and lane_blocked:
 		open_lane()
 
 
