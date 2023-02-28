@@ -1,7 +1,7 @@
 extends Node
 
 
-var speed = 10
+var speed = 5
 var enemy_speed = speed + 10
 var coins = 0
 
