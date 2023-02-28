@@ -171,12 +171,12 @@ func randomize_enemy() -> void:
 					1:
 						position = Vector2(
 							361, 
-							-rand.randi_range(72, 300)
+							-rand.randi_range(72, 600)
 						)  # Third lane
 					2:
 						position = Vector2(
 							480, 
-							-rand.randi_range(72, 300)
+							-rand.randi_range(72, 600)
 						)  # Fourth lane
 				
 				sprite.rotation_degrees = 180  # Flip sprite upside down
@@ -191,12 +191,12 @@ func randomize_enemy() -> void:
 					1:
 						position = Vector2(
 							120, 
-							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 300)
+							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
 						)  # First lane
 					2:
 						position = Vector2(
 							239, 
-							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 300)
+							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
 						)  # Second lane
 						
 				sprite.rotation_degrees = 0
