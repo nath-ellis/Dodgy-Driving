@@ -5,7 +5,7 @@ var rand = RandomNumberGenerator.new()
 var vel = Vector2()
 
 
-func _init() -> void:
+func _ready() -> void:
 	rand.randomize()
 	
 	set_meta("border", false)
