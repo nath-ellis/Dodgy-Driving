@@ -20,9 +20,9 @@ func _ready() -> void:
 
 func _physics_process(_delta) -> void:
 	# Enemy drives off the bottom
-	if position.y >= get_viewport_rect().size.y + 60 and vel.y > 0: randomize_enemy()
+	if position.y >= get_viewport_rect().size.y + 60 and vel.y > 0: queue_free()
 	# Enemy drives off the top
-	if position.y <= -60 and vel.y < 0: randomize_enemy()
+	if position.y <= -60 and vel.y < 0: queue_free()
 	
 	var col = move_and_collide(vel)
 	
@@ -110,99 +110,65 @@ func change_type() -> void:
 		7: sprite.set_texture(load("res://assets/cars/police.png"))
 
 
+# TODO: Add a random chance that an enemy will be travelling the wrong way
+func new_position(lane) -> void:
+	match lane:
+		1:
+			position = Vector2(
+				120, 
+				rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+			)
+
+			sprite.rotation_degrees = 0
+
+			# If it is moving in the wrong direction
+			if vel.y > 0:
+				vel.y *= -1
+		2:
+			position = Vector2(
+				239, 
+				rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+			)
+
+			sprite.rotation_degrees = 0
+
+			if vel.y > 0:
+				vel.y *= -1
+		3:
+			position = Vector2(
+				361, 
+				-rand.randi_range(72, 600)
+			)
+
+			sprite.rotation_degrees = 180
+
+			if vel.y < 0:
+				vel.y *= -1
+		4:
+			position = Vector2(
+				480, 
+				-rand.randi_range(72, 600)
+			)
+
+			sprite.rotation_degrees = 180
+
+			if vel.y < 0:
+				vel.y *= -1
+
+
 func randomize_enemy() -> void:
 	vel.x = 0
 	vel.y = rand.randi_range(Manager.speed+5, Manager.enemy_speed) # Fixed speed
 	
 	change_type()
 	
-	if has_meta("stay_in_lane"):  # Keep the enemy in the same lane
-		if get_meta("stay_in_lane"):
-			if position.x <= 206:
-				position = Vector2(
-					120, 
-					rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 900)
-				) 
-				
-				sprite.rotation_degrees = 0
-				
-				if vel.y > 0:  # If it is moving in the wrong direction
-					vel.y *= -1
-			elif position.x <= 329:
-				position = Vector2(
-					239, 
-					rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 900)
-				) 
-				
-				sprite.rotation_degrees = 0
-				
-				if vel.y > 0:  # If it is moving in the wrong direction
-					vel.y *= -1
-			elif position.x <= 452:
-				position = Vector2(
-					361, 
-					-rand.randi_range(72, 900)
-				)
-				
-				sprite.rotation_degrees = 180  # Flip sprite upside down
-				
-				if vel.y < 0:  # If it is moving in the wrong direction
-					vel.y *= -1
-			else:
-				position = Vector2(
-					480, 
-					-rand.randi_range(72, 900)
-				)
-				
-				sprite.rotation_degrees = 180  # Flip sprite upside down
-				
-				if vel.y < 0:  # If it is moving in the wrong direction
-					vel.y *= -1
-		else:
-			queue_free()
+	# TODO: Add a random chance an enemy will not stay in the same lane
+	if Manager.lane_blocked:  # Keep the enemy in the same lane
+		new_position(Manager.lane_to_block)
 	else:  # Randomize it if it is not meant to stay in a lane
-		var choice = rand.randi_range(1, 2)
-		
-		match choice:
-			1:
-				choice = rand.randi_range(1, 2)
-				
-				match choice:
-					1:
-						position = Vector2(
-							361, 
-							-rand.randi_range(72, 600)
-						)  # Third lane
-					2:
-						position = Vector2(
-							480, 
-							-rand.randi_range(72, 600)
-						)  # Fourth lane
-				
-				sprite.rotation_degrees = 180  # Flip sprite upside down
-				
-				if vel.y < 0:  # If it is moving in the wrong direction
-					vel.y *= -1
-				# TODO: Add a random chance that an enemy will be travelling the wrong way
-			2:
-				choice = rand.randi_range(1, 2)
-				
-				match choice:
-					1:
-						position = Vector2(
-							120, 
-							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
-						)  # First lane
-					2:
-						position = Vector2(
-							239, 
-							rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
-						)  # Second lane
-						
-				sprite.rotation_degrees = 0
-				
-				if vel.y > 0:  # If it is moving in the wrong direction
-					vel.y *= -1
+		match rand.randi_range(1, 2):
+			1: new_position(rand.randi_range(3, 4))
+			2: new_position(rand.randi_range(1, 2))
 
 
 func collision() -> void:
@@ -217,11 +183,4 @@ func collision() -> void:
 
 
 func _on_Explosion_animation_finished() -> void:
-	randomize_enemy()
-	
-	sprite.show()
-	
-	explosion.hide()
-	explosion.stop()
-	
-	hitbox.disabled = false
+	queue_free()
