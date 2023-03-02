@@ -42,7 +42,8 @@ func randomize_coin() -> void:
 
 func _physics_process(_delta) -> void:
 	# Coin goes off the bottom
-	if position.y >= get_viewport_rect().size.y + 60: randomize_coin()
+	if position.y >= get_viewport_rect().size.y + 60: 
+		randomize_coin()
 	
 	var col = move_and_collide(vel)
 	

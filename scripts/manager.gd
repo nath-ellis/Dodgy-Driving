@@ -1,15 +1,12 @@
 extends Node
 
 
-const enemy = preload("res://scenes/Enemy.tscn")
+const ENEMY = preload("res://scenes/Enemy.tscn")
 
 var rand = RandomNumberGenerator.new()
-
 var speed = 5
 var enemy_speed = speed + 10
-
 var coins = 0
-
 var lane_blocked = false
 var lane_to_block = 1
 var started_blocking = Time.get_unix_time_from_system()
@@ -24,11 +21,11 @@ func add_coin() -> void:
 
 
 func add_enemy(road) -> void:
-	road.add_child(enemy.instance())
+	road.add_child(ENEMY.instance())
 
 
 func add_enemy_at(road, x, y) -> void:
-	var e = enemy.instance()
+	var e = ENEMY.instance()
 
 	road.add_child(e)
 
@@ -52,11 +49,15 @@ func block_lane(road) -> void:
 
 	lane_to_block = rand.randi_range(1, 4)
 	
-	match Manager.lane_to_block:
-		1: x = 120
-		2: x = 239
-		3: x = 361
-		4: x = 480
+	match lane_to_block:
+		1: 
+			x = 120
+		2: 
+			x = 239
+		3: 
+			x = 361
+		4: 
+			x = 480
 	
 	# Add enemies which will stay in the same lane
 	for _i in range(5):

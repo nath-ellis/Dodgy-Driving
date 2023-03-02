@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/coins/coin_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/coins/coin_8.png" type="Texture" id=7]
 [ext_resource path="res://assets/coins/coin_3.png" type="Texture" id=8]
-[ext_resource path="res://scripts/Coin.gd" type="Script" id=9]
+[ext_resource path="res://scripts/coin.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,7 +27,7 @@ script = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-frame = 2
+frame = 0
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

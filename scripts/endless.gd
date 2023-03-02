@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const life_sprite = preload("res://assets/life.png")
+const LIFE_SPRITE = preload("res://assets/life.png")
 
 var rand = RandomNumberGenerator.new()
 
@@ -19,7 +19,7 @@ func add_lives() -> void:
 		var life = Sprite.new()
 		life.position = Vector2(x, y)
 		life.scale = Vector2(2, 2)
-		life.set_texture(life_sprite)
+		life.set_texture(LIFE_SPRITE)
 		
 		lives.add_child(life)
 		

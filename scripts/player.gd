@@ -19,8 +19,11 @@ func _input(event) -> void:
 		var range_y = event.position.y - global_position.y
 		
 		# If negative
-		if range_x < 0: range_x *= -1
-		if range_y < 0: range_y *= -1
+		if range_x < 0: 
+			range_x *= -1
+			
+		if range_y < 0: 
+			range_y *= -1
 		
 		# So that the player cannot teleport across the screen
 		if range_x < 300 and range_y < 300:
