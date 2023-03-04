@@ -218,11 +218,7 @@ func randomize_enemy() -> void:
 	if Manager.lane_blocked:  # Keep the enemy in the same lane
 		new_position(Manager.lane_to_block)
 	else:  # Randomize it if it is not meant to stay in a lane
-		match rand.randi_range(1, 2):
-			1: 
-				new_position(rand.randi_range(3, 4))
-			2: 
-				new_position(rand.randi_range(1, 2))
+		new_position(rand.randi_range(1, 4))
 
 
 func collision() -> void:
