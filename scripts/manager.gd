@@ -36,6 +36,18 @@ func add_enemy_at(road, x, y) -> void:
 	else:
 		e.position =  Vector2(x, y)
 
+	# Change velocity and sprite rotation
+	if e.position.x == 120 or e.position.x == 239:
+		e.sprite.rotation_degrees = 0
+
+		if e.vel.y > 0:
+			e.vel.y *= -1
+	else:
+		e.sprite.rotation_degrees = 180
+
+		if e.vel.y < 0:
+			e.vel.y *= -1
+
 
 func remove_all_enemies(road) -> void:
 	for e in road.get_children():
