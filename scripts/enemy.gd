@@ -1,20 +1,16 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var rand = RandomNumberGenerator.new()
 var vel = Vector2()
 
-onready var sprite = $Sprite
-onready var explosion = $Explosion
-onready var hitbox = $CollisionShape2D
+@onready var sprite = $Sprite2D
+@onready var explosion = $Explosion
+@onready var hitbox = $CollisionShape2D
 
 
 func _ready() -> void:
 	rand.randomize()
-	
-	set_meta("border", false)
-	set_meta("is_coin", false)
-	
 	randomize_enemy()
 
 
@@ -31,7 +27,7 @@ func _physics_process(_delta) -> void:
 	
 	# If there is a collision
 	if col != null:
-		var collider = col.collider  # The kinematicbody2d that the enemy collides with
+		var collider = col.get_collider()  # The kinematicbody2d that the enemy collides with
 		
 		# Player collision
 		if collider.has_method("enemy_collision"):
@@ -168,7 +164,7 @@ func new_position(lane) -> void:
 		1:
 			position = Vector2(
 				120, 
-				rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
 			)
 
 			sprite.rotation_degrees = 0
@@ -179,7 +175,7 @@ func new_position(lane) -> void:
 		2:
 			position = Vector2(
 				239, 
-				rand.randi_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
 			)
 
 			sprite.rotation_degrees = 0
@@ -189,7 +185,7 @@ func new_position(lane) -> void:
 		3:
 			position = Vector2(
 				361, 
-				-rand.randi_range(72, 600)
+				-rand.randf_range(72, 600)
 			)
 
 			sprite.rotation_degrees = 180
@@ -199,7 +195,7 @@ func new_position(lane) -> void:
 		4:
 			position = Vector2(
 				480, 
-				-rand.randi_range(72, 600)
+				-rand.randf_range(72, 600)
 			)
 
 			sprite.rotation_degrees = 180
@@ -232,5 +228,5 @@ func collision() -> void:
 	sprite.hide()
 
 
-func _on_Explosion_animation_finished() -> void:
+func _on_explosion_animation_finished() -> void:
 	queue_free()

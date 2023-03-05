@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var rand = RandomNumberGenerator.new()
@@ -7,10 +7,6 @@ var vel = Vector2()
 
 func _ready() -> void:
 	rand.randomize()
-	
-	set_meta("border", false)
-	set_meta("is_coin", true)
-	
 	randomize_coin()
 
 
@@ -48,7 +44,7 @@ func _physics_process(_delta) -> void:
 	var col = move_and_collide(vel)
 	
 	if col != null:
-		var collider = col.collider
+		var collider = col.get_collider()
 		
 		if collider.has_meta("lives"):
 			Manager.add_coin()

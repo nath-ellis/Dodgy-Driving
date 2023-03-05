@@ -5,9 +5,9 @@ const LIFE_SPRITE = preload("res://assets/life.png")
 
 var rand = RandomNumberGenerator.new()
 
-onready var player = $Player
-onready var road = $Road
-onready var lives = $Lives
+@onready var player = $Player
+@onready var road = $Road
+@onready var lives = $Lives
 
 
 func add_lives() -> void:
@@ -16,7 +16,7 @@ func add_lives() -> void:
 	
 	# Add correct amount of lives
 	for _i in range(player.get_meta("lives")):
-		var life = Sprite.new()
+		var life = Sprite2D.new()
 		life.position = Vector2(x, y)
 		life.scale = Vector2(2, 2)
 		life.set_texture(LIFE_SPRITE)
@@ -38,7 +38,7 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	if player.get_meta("lives") <= 0:
-		get_tree().change_scene("res://scenes/GameOver.tscn")
+		get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 		
 	if rand.randi_range(1, 100) == 5 and !Manager.lane_blocked:
 		Manager.block_lane(road)

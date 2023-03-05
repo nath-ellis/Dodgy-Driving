@@ -6,22 +6,13 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-} ]
-_global_script_class_icons={
-"GitAPI": ""
-}
+config_version=5
 
 [application]
 
 config/name="DodgyDriving"
 run/main_scene="res://scenes/Menu.tscn"
+config/features=PackedStringArray("4.0")
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -30,13 +21,18 @@ Manager="*res://scripts/manager.gd"
 
 [display]
 
-window/size/width=600
-window/size/height=1024
-window/size/test_width=300
-window/size/test_height=512
+window/size/viewport_width=600
+window/size/viewport_height=1024
+window/size/window_width_override=300
+window/size/window_height_override=512
 window/handheld/orientation="portrait"
-window/stretch/mode="2d"
+window/vsync/vsync_mode=0
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+
+[dotnet]
+
+project/assembly_name="DodgyDriving"
 
 [editor]
 
@@ -61,4 +57,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+renderer/rendering_method="mobile"
+environment/defaults/default_environment="res://default_env.tres"

@@ -1,16 +1,11 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var vel = Vector2()
 
-onready var explosion = $Explosion
-onready var hitbox = $CollisionShape2D
-onready var timer = $Timer
-
-
-func _ready() -> void:
-	set_meta("lives", 3)
-	set_meta("is_coin", false)
+@onready var explosion = $Explosion
+@onready var hitbox = $CollisionShape2D
+@onready var timer = $Timer
 
 
 func _input(event) -> void:
@@ -33,7 +28,7 @@ func _input(event) -> void:
 			var col = move_and_collide(vel)
 			
 			if col != null:
-				var collider = col.collider
+				var collider = col.get_collider()
 				
 				if collider.has_method("collision") and !collider.get_meta("is_coin"):
 					collider.call("collision")
@@ -54,7 +49,7 @@ func enemy_collision() -> void:
 		timer.start()
 
 
-func _on_Explosion_animation_finished() -> void:
+func _on_explosion_animation_finished() -> void:
 	explosion.hide()
 	explosion.stop()
 	

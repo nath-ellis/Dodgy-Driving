@@ -21,11 +21,11 @@ func add_coin() -> void:
 
 
 func add_enemy(road) -> void:
-	road.add_child(ENEMY.instance())
+	road.add_child(ENEMY.instantiate())
 
 
 func add_enemy_at(road, x, y) -> void:
-	var e = ENEMY.instance()
+	var e = ENEMY.instantiate()
 
 	road.add_child(e)
 
@@ -52,7 +52,7 @@ func add_enemy_at(road, x, y) -> void:
 func remove_all_enemies(road) -> void:
 	for e in road.get_children():
 		# If it is an enemy
-		if e is KinematicBody2D and !e.get_meta("border"):
+		if e is CharacterBody2D and !e.get_meta("border"):
 			e.queue_free()
 
 
