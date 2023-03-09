@@ -40,7 +40,7 @@ func _physics_process(_delta) -> void:
 		if !collider.get_meta("is_coin"):
 			collision()
 		else:  # Coin collision
-			collider.call("randomize_coin")
+			collider.call("randomize_coin", false)
 
 
 func change_type() -> void:
