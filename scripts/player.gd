@@ -36,6 +36,11 @@ func _input(event) -> void:
 				# Prevents collision with borders counting
 				if !collider.get_meta("border") and !collider.get_meta("is_coin"):
 					enemy_collision()
+				
+				# Coin collision
+				if collider.get_meta("is_coin"):
+					collider.call("randomize_coin", true)
+					# FINISH
 
 
 func enemy_collision() -> void:
