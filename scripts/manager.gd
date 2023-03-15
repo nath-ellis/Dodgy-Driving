@@ -81,3 +81,10 @@ func block_lane(road) -> void:
 
 func open_lane() -> void:
 	lane_blocked = false
+
+
+func wave_of_traffic(road) -> void:
+	open_lane()
+	
+	for i in range(rand.randi_range(40, 50)):
+		add_enemy(road)

@@ -164,7 +164,7 @@ func new_position(lane) -> void:
 		1:
 			position = Vector2(
 				120, 
-				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 1000)
 			)
 
 			sprite.rotation_degrees = 0
@@ -175,7 +175,7 @@ func new_position(lane) -> void:
 		2:
 			position = Vector2(
 				239, 
-				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 600)
+				rand.randf_range(get_viewport_rect().size.y, get_viewport_rect().size.y + 1000)
 			)
 
 			sprite.rotation_degrees = 0
@@ -185,7 +185,7 @@ func new_position(lane) -> void:
 		3:
 			position = Vector2(
 				361, 
-				-rand.randf_range(72, 600)
+				-rand.randf_range(72, 1000)
 			)
 
 			sprite.rotation_degrees = 180
@@ -195,7 +195,7 @@ func new_position(lane) -> void:
 		4:
 			position = Vector2(
 				480, 
-				-rand.randf_range(72, 600)
+				-rand.randf_range(72, 1000)
 			)
 
 			sprite.rotation_degrees = 180

@@ -4,6 +4,7 @@ extends Node2D
 const LIFE_SPRITE = preload("res://assets/life.png")
 
 var rand = RandomNumberGenerator.new()
+var traffic_timer = Time.get_unix_time_from_system()
 
 @onready var player = $Player
 @onready var road = $Road
@@ -45,6 +46,11 @@ func _process(_delta) -> void:
 	
 	if Time.get_unix_time_from_system() - Manager.started_blocking >= 10 and Manager.lane_blocked:
 		Manager.open_lane()
+	
+	# 1/100 chance every 5 seconds
+	if Time.get_unix_time_from_system() - traffic_timer >= 5 and rand.randi_range(1, 100) == 1:
+		traffic_timer = Time.get_unix_time_from_system()
+		Manager.wave_of_traffic(road)
 
 
 func restart() -> void:
