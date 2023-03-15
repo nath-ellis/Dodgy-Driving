@@ -226,6 +226,8 @@ func collision() -> void:
 	explosion.play()
 	
 	sprite.hide()
+	
+	move_to_front()  # So that other enemies appear behind the explosion
 
 
 func _on_explosion_animation_finished() -> void:
