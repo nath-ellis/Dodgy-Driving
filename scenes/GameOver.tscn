@@ -18,17 +18,24 @@ theme = ExtResource("2")
 
 [node name="PlayAgain" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 677.0
-offset_right = 369.0
-offset_bottom = 770.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 164.0
+offset_top = 627.0
+offset_right = 432.0
+offset_bottom = 683.0
 text = "Play Again?"
+
+[node name="Menu" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 754.0
+offset_right = 361.0
+offset_bottom = 810.0
+text = "Menu"
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
 [connection signal="pressed" from="UI/PlayAgain" to="." method="_on_play_again_btn_pressed"]
+[connection signal="pressed" from="UI/Menu" to="." method="_on_menu_btn_pressed"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
