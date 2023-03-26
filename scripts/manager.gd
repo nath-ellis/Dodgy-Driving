@@ -12,7 +12,7 @@ var lane_to_block = 1
 var started_blocking = Time.get_unix_time_from_system()
 
 
-func _ready():
+func _ready() -> void:
 	rand.randomize()
 
 

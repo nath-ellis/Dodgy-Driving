@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5pyamnshkti1"]
+[gd_scene load_steps=13 format=3 uid="uid://b5pyamnshkti1"]
 
 [ext_resource type="PackedScene" uid="uid://dp42vxv3jwphf" path="res://scenes/Road.tscn" id="1"]
 [ext_resource type="Theme" uid="uid://c0jeqeuie4r85" path="res://assets/Theme.tres" id="2"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://c807ry0d4ljxn" path="res://assets/coins/coin_1.png" id="4_mbpda"]
+[ext_resource type="Texture2D" uid="uid://c14k0rb8omxxa" path="res://assets/coins/coin_2.png" id="5_dcxmk"]
+[ext_resource type="Texture2D" uid="uid://d068qy3vg0qy2" path="res://assets/coins/coin_3.png" id="6_k41ma"]
+[ext_resource type="Texture2D" uid="uid://jslr2xcuw2xr" path="res://assets/coins/coin_4.png" id="7_xw586"]
+[ext_resource type="Texture2D" uid="uid://das8b4nkry1x5" path="res://assets/coins/coin_5.png" id="8_6vmo1"]
+[ext_resource type="Texture2D" uid="uid://1bp6xh7oglwl" path="res://assets/coins/coin_6.png" id="9_bupan"]
+[ext_resource type="Texture2D" uid="uid://bxoom5oiogoje" path="res://assets/coins/coin_7.png" id="10_d2nic"]
+[ext_resource type="Texture2D" uid="uid://bwkh6s5nevhs4" path="res://assets/coins/coin_8.png" id="11_hikhn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hui5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mbpda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dcxmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k41ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xw586")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6vmo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bupan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d2nic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hikhn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("3")
@@ -37,6 +77,20 @@ offset_top = 675.0
 offset_right = 391.0
 offset_bottom = 731.0
 text = "Endless"
+
+[node name="Coins" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 18.0
+offset_right = 175.0
+offset_bottom = 77.0
+text = "$$$"
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="UI"]
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_hui5s")
+autoplay = "default"
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5

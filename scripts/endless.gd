@@ -65,5 +65,5 @@ func restart() -> void:
 
 
 # Add enemy
-func _on_EnemyTimer_timeout():
+func _on_EnemyTimer_timeout() -> void:
 	Manager.add_enemy(road)

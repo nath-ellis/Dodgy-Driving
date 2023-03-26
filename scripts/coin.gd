@@ -37,7 +37,7 @@ func randomize_coin(collected) -> void:
 			)  # Fourth lane
 	
 	# So that two coins are not added if the collision is detected by both the coin and the player
-	if collected and Time.get_unix_time_from_system() - time >= 1:
+	if collected and Time.get_unix_time_from_system() - time >= 0.1:
 		Manager.add_coin()
 		time = Time.get_unix_time_from_system()
 

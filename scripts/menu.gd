@@ -5,6 +5,11 @@ extends Node2D
 @onready var play_btn = $UI/Play
 @onready var endless_btn = $UI/Modes/Endless
 @onready var modes = $UI/Modes
+@onready var coins = $UI/Coins
+
+
+func _ready() -> void:
+	coins.text = str(Manager.coins)
 
 
 func _on_EnemyTimer_timeout() -> void:
