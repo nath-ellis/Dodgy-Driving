@@ -2655,12 +2655,7 @@ cache/0/64/0/kerning_overrides/63/0 = Vector2(0, 0)
 cache/0/64/0/kerning_overrides/64/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="2"]
-bg_color = Color(0.0431373, 0.113725, 0.184314, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(6.16675e-08, 0.118356, 0.0495322, 0.705882)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2668,15 +2663,11 @@ corner_radius_bottom_left = 10
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
-expand_margin_bottom = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="3"]
-bg_color = Color(0.168627, 0.207843, 0.776471, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.745098, 0.427451, 0.705882)
+skew = Vector2(-0.1, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2684,15 +2675,10 @@ corner_radius_bottom_left = 10
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
-expand_margin_bottom = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="4"]
-bg_color = Color(0.168627, 0.364706, 0.776471, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.745098, 0.427451, 0.67451)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2700,15 +2686,11 @@ corner_radius_bottom_left = 10
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
-expand_margin_bottom = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="5"]
-bg_color = Color(0.168627, 0.462745, 0.776471, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.745098, 0.427451, 0.67451)
+skew = Vector2(0.1, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2716,15 +2698,11 @@ corner_radius_bottom_left = 10
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
-expand_margin_bottom = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="6"]
-bg_color = Color(0.168627, 0.207843, 0.776471, 1)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0.745098, 0.427451, 0.705882)
+skew = Vector2(-0.1, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2732,7 +2710,7 @@ corner_radius_bottom_left = 10
 expand_margin_left = 15.0
 expand_margin_top = 15.0
 expand_margin_right = 15.0
-expand_margin_bottom = 10.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("1")])
