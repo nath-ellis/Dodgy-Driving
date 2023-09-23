@@ -12,7 +12,7 @@ config_version=5
 
 config/name="DodgyDriving"
 run/main_scene="res://scenes/Menu.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.1")
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -25,10 +25,10 @@ window/size/viewport_width=600
 window/size/viewport_height=1024
 window/size/window_width_override=300
 window/size/window_height_override=512
-window/handheld/orientation=1
-window/vsync/vsync_mode=0
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+window/vsync/vsync_mode=0
 
 [dotnet]
 
