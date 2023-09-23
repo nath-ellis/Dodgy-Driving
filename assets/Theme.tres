@@ -2652,7 +2652,7 @@ cache/0/64/0/kerning_overrides/63/0 = Vector2(0, 0)
 cache/0/64/0/kerning_overrides/64/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="2"]
-bg_color = Color(6.16675e-08, 0.118356, 0.0495322, 0.705882)
+bg_color = Color(1, 1, 1, 0.705882)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2663,8 +2663,7 @@ expand_margin_right = 30.0
 expand_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxFlat" id="3"]
-bg_color = Color(0, 0.745098, 0.427451, 0.705882)
-skew = Vector2(-0.1, 0)
+bg_color = Color(0, 0.907184, 0.953312, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2675,7 +2674,7 @@ expand_margin_right = 30.0
 expand_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxFlat" id="4"]
-bg_color = Color(0, 0.745098, 0.427451, 0.67451)
+bg_color = Color(0, 0.907184, 0.953312, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2686,8 +2685,7 @@ expand_margin_right = 30.0
 expand_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxFlat" id="5"]
-bg_color = Color(0, 0.745098, 0.427451, 0.67451)
-skew = Vector2(0.1, 0)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -2698,8 +2696,7 @@ expand_margin_right = 30.0
 expand_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxFlat" id="6"]
-bg_color = Color(0, 0.745098, 0.427451, 0.705882)
-skew = Vector2(-0.1, 0)
+bg_color = Color(0, 0.678431, 0.713726, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
